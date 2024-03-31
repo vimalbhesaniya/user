@@ -50,7 +50,6 @@ function EditAddress() {
                     <label htmlFor="" className="form-label">State :</label>
                     <FormSelectBox
                         type="text"
-                        // warning="states"
                         className="form-control"
                         arrayKey="states"
                         selectedState={stateValue}
