@@ -1,0 +1,22 @@
+.homeMain{
+    width: 100%;
+    height: auto;
+}
+
+.carouselContainer {
+    width: 100%;
+    overflow: hidden;
+    position: relative;
+  }
+  
+  .slideContainer {
+    display: flex;
+    transition: transform 0.5s ease;
+    width: 100%;
+  }
+  
+  .slide {
+    flex: 0 0 auto;
+    width: 100%;
+  }
+  

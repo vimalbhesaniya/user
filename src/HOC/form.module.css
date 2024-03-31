@@ -1,0 +1,67 @@
+:root {
+    --body: #f6f1e9;
+    --primaryColor: #7FC7D9;
+    --primaryLight: #ace2e17e;
+    --primaryDark: #365486;
+    --secendoryColor: gray;
+    --font: #142F43;
+    --warn: #bf0c0ccf;
+    --warnLight: #bf0c0c9f;
+    --bg: #0F1035;
+    font-family: "Tenor Sans", sans-serif;
+    font-weight: 400;
+    --white :white;
+    font-style: normal;
+}
+
+.inputBox{
+    position: relative;
+}
+
+.input {
+    width: 100%;
+    padding: 10px 15px;
+    outline: none;
+    border-radius: 4px;
+    border: none;
+    border: 1px solid var(--primaryColor);
+    transition: all .5s;
+    color: var(--font);
+    font-weight: 500;
+}
+
+.label {
+    color: var(--font);
+    font-weight: 500;
+}
+
+.input:focus {
+    border: 1px solid var(--primaryColor);
+}
+
+::placeholder {
+    color: var(--secendoryColor);
+    
+}
+
+.warning {
+    color: var(--warn);
+    font-size: small;
+}
+
+.warn {
+    border: 1px solid var(--warn);
+    background-color: var(--warnLight);
+    color: var(--warn);
+}
+
+.password{
+    position: absolute;
+    right: 10px;
+    bottom: 10px;
+}
+
+.inputDiv{
+    position: relative;
+    
+}
