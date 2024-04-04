@@ -21,9 +21,15 @@ function EditAddress() {
 
     const handleSubmit = useCallback(async () => {
         const id = Cookies.get("id");
+        const payload = {
+            ...(personalAddress && { personalAddress }),
+            ...(pinCode && { pinCode }),
+            ...(state && { state }),
+            ...(city && { city }),
+        }
         const data = await api.patchREQUEST("updateDetails", "users", id, {
             location:
-                [{ personalAddress, pinCode, state, city }]
+                [payload]
         })
     }, [stateValue, city, personalAddress, pinCode])
 
