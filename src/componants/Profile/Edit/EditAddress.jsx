@@ -82,7 +82,7 @@ function EditAddress() {
                     {/* <input type="text" placeholder="" className="form-control" name="city" value={formData.city} onChange={handleChange} /> */}
                 </div>
             </div>
-            <button type="submit" value="Submit" className="btn btn-info w-25 mb-3" data-mdb-ripple-init onClick={() => handleSubmit()}>Save</button>
+            <button type="submit" value="Submit" className="bgbtn btn w-25 mb-3" data-mdb-ripple-init onClick={() => handleSubmit()}>Save</button>
         </div>
     );
 }

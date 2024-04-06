@@ -2,7 +2,6 @@ import React, { useMemo, useCallback, useState } from "react";
 import "../../../Style/singup.css";
 import Lottie from "lottie-react";
 import "react-toastify/dist/ReactToastify.css";
-import { Autocomplete } from '@lob/react-address-autocomplete'
 import Stepper from "react-stepper-horizontal";
 import FormButton from "../../Common/FormButton";
 import FormSelectBox from "../../Common/FormSelectBox";
@@ -10,10 +9,7 @@ import me from "../../../assets/Je3eTqQJrt.json";
 import { Link } from "react-router-dom";
 import css from "../../../HOC/form.module.css"
 import useAPI from "../../../Hooks/USER/useAPI";
-import FormContainer from "../../Common/FormContainer";
 import "../../../Style/login.css";
-import InputText from "../validateInputs";
-import { isValidStep3 } from "../../../Auth/isValidate";
 import TextBox from "../../../HOC/TextBox";
 import { toast } from "react-toastify";
 
@@ -118,7 +114,7 @@ const Step3 = ({ setScreen }) => {
                         <div className="d-flex gap-2">
                             <FormButton
                                 className={"--btn"}
-                                text={"next"}
+                                text={"back"}
                                 onClick={() => setScreen("step2")}
                             />
                             <FormButton

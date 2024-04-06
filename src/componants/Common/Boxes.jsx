@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React from 'react'
 import "../../Style/login.css"
 const Saved = ({ array  , setArray}) => {
     const perfromDelete = (index) => {
