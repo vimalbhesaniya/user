@@ -1,7 +1,6 @@
-import React, { useCallback, useMemo, useState } from "react";
+import React, { useCallback, useState } from "react";
 import "../../../Style/singup.css";
 import Lottie from "lottie-react";
-import classes from "../../../Style/inputBoxs.module.css";
 
 import "react-toastify/dist/ReactToastify.css";
 import { Link } from "react-router-dom";
@@ -9,10 +8,7 @@ import Stepper from "react-stepper-horizontal";
 import FormButton from "../../Common/FormButton";
 import me from "../../../assets/Je3eTqQJrt.json";
 import useAPI from "../../../Hooks/USER/useAPI";
-import FormContainer from "../../Common/FormContainer";
 import "../../../Style/login.css";
-import InputText from "../validateInputs";
-import { isValidStep5 } from "../../../Auth/isValidate";
 import TextBox from "../../../HOC/TextBox";
 import Saved from "../../Common/Boxes";
 
@@ -25,14 +21,13 @@ const Step5 = ({ setScreen }) => {
         />
     );
 
-    const [jobTitle, setJobTitle] = useState("");
-    const [userType, setUserType] = useState("");
-    const [companyName, setCompanyName] = useState("");
-    const [startDateWork, setStartDateWork] = useState("");
-    const [endDateWork, setEndDateWork] = useState("");
+    const [jobTitle, setJobTitle] = useState("no data");
+    const [userType, setUserType] = useState("no data");
+    const [companyName, setCompanyName] = useState("no data");
+    const [startDateWork, setStartDateWork] = useState();
+    const [endDateWork, setEndDateWork] = useState();
     const [responsibilities, setResponsibilities] = useState([]);
     const [achievements, setAchievements] = useState([]);
-    const [isFresher, setIsFresher] = useState(false);
     const [input, setInput] = useState([]);
     
     const api = useAPI();
@@ -57,7 +52,6 @@ const Step5 = ({ setScreen }) => {
         const data = await api.patchREQUEST("updateDetails", "users", id, {
             experience: [
                 {
-                    isFresher,
                     jobTitle,
                     companyName,
                     userType,
@@ -94,7 +88,7 @@ const Step5 = ({ setScreen }) => {
                     <div className="--heading">
                         <span className="--headingText">Sign Up</span>
                         <Stepper steps={[{}, {}, {}, {}, {}, {}]} activeStep={4} />
-                        <span className="--sloganText">Give yout Experience Details(you can skip this step)</span>
+                        <span className="--sloganText">Give your Experience Details(you can skip this step)</span>
                         <span className="--waring"></span>
                     </div>
                     <div className="d-flex flex-column gap-2 do-res ">

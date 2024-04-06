@@ -6,7 +6,6 @@ const CompanyProfile = () => {
     const [company , setCompany] = useState([])
     const [connectingId , setConnectingId] = useState([]); 
     const [connectedCompany, setConnectedCompany] = useState([]);
-    const [loading, setLoading] = useState(false);
     const api = useAPI();
     const id = Cookies.get("id");
     useEffect(() => {

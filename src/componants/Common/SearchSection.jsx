@@ -6,14 +6,13 @@ import JobCard from "./JobCard";
 import Cookies from "js-cookie";
 
 const SearchSection = () => {
-    const [jobType, setJobType] = useState("Remote");
+    const [jobType, setJobType] = useState("FullTime");
     const [location, setLocation] = useState("");
     const [jobs, setJobs] = useState([]);
     const [viewJob, setViewJob] = useState("");
     const [visible, setVisible] = useState(false);
     const [keyword, setKeyword] = useState("");
-    const [length, setLength] = useState([]);
-    const [searchJobs,setSearchJobs]=useState([]);
+    const [length, setLength] = useState([]); 
     const [originalJobs, setOriginalJobs] = useState([]);
     const api = useAPI();
 

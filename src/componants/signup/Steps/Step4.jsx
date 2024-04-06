@@ -1,40 +1,29 @@
-import React, { useCallback, useMemo, useState } from "react";
+import React, { useCallback, useState } from "react";
 import "../../../Style/singup.css";
-import classes from "../../../Style/inputBoxs.module.css";
 import Lottie from "lottie-react";
 import "react-toastify/dist/ReactToastify.css";
 import { Link } from "react-router-dom";
 import Stepper from "react-stepper-horizontal";
 import FormButton from "../../Common/FormButton";
 import me from "../../../assets/Je3eTqQJrt.json";
-import FormContainer from "../../Common/FormContainer";
 import "../../../Style/login.css";
-import InputText from "../validateInputs";
 import TextBox from "../../../HOC/TextBox";
-import { isValidStep4 } from "../../../Auth/isValidate";
 import useAPI from "../../../Hooks/USER/useAPI";
 import Saved from "../../Common/Boxes";
 
 const Step4 = ({ setScreen }) => {
-    const lottie = (
-        <Lottie
-            animationData={me}
-            loop={true}
-            style={{ height: "100%", width: "100%" }}
-        />
-    );
 
     const api = useAPI();
 
     const [institutionName, setInstitutionName] = useState("");
     const [input, setInput] = useState([]);
     const [degreeLevel, setDegreeLevel] = useState([]);
-    const [startDateSchool, setStartDateSchool] = useState("");
-    const [endDateSchool, setEndDateSchool] = useState("");
-    const [gpa, setGpa] = useState("");
+    const [startDateSchool, setStartDateSchool] = useState("no data");
+    const [endDateSchool, setEndDateSchool] = useState("no data");
+    const [gpa, setGpa] = useState("no data");
     const [certifications, setCertifications] = useState([]);
-    const [univercity, setUnivercity] = useState("");
-    const [school, setSchool] = useState("");
+    const [univercity, setUnivercity] = useState("no data");
+    const [school, setSchool] = useState("no data");
 
     const handleEnterDegreeEvent = (e) => {
         if (e.key == "Enter") {
@@ -103,6 +92,12 @@ const Step4 = ({ setScreen }) => {
                             onChange={setInstitutionName}
                             labelText={"Institution name"}
                         />
+                        <TextBox
+                            Type={"text"}
+                            PlaceHolder={"School"}
+                            onChange={setSchool}
+                            labelText={"School"}
+                        />
                         <div className="d-flex  flex-wrap  gap-3">
                             <Saved
                                 array={degreeLevel}
@@ -111,10 +106,10 @@ const Step4 = ({ setScreen }) => {
                         </div>
                         <TextBox
                             Type={"text"}
-                            PlaceHolder={"Degree leval"}
+                            PlaceHolder={"Degree level"}
                             handleKeyUpChange={handleEnterDegreeEvent}
                             handleChange={setInput}
-                            labelText={"degree lavel"}
+                            labelText={"degree level(Press Enter)"}
                         />
                         <TextBox
                             Type={"date"}
@@ -146,7 +141,7 @@ const Step4 = ({ setScreen }) => {
                             PlaceHolder={"Certifications"}
                             handleChange={setInput}
                             handleKeyUpChange={handleEnterCertificationEvent}
-                            labelText={"Certifications"}
+                            labelText={"Certifications(Press Enter)"}
                         />
                         <TextBox
                             Type={"text"}

@@ -75,11 +75,14 @@ const Step2 = ({ setScreen }) => {
                             PlaceHolder={"First Name"}
                             onChange={setFirstName}
                             required={true}
+                            isNumber={true}
                             labelText={"First Name"}
                         />
+
                         <TextBox
                             Type={"text"}
                             PlaceHolder={"Last Name"}
+                            isNumber={true}
                             onChange={setLastName}
                             required={true}
                             labelText={"Last Name"}
@@ -100,6 +103,11 @@ const Step2 = ({ setScreen }) => {
 
                         </div>
                         <div className="d-flex gap-2">
+                        <FormButton
+                                className={"--btn"}
+                                text={"back"}
+                                onClick={() => setScreen("step1")}
+                            />
                             <FormButton
                                 className={"--btn"}
                                 text={"next"}

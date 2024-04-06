@@ -6,11 +6,8 @@ import "react-toastify/dist/ReactToastify.css";
 import Stepper from "react-stepper-horizontal";
 import FormButton from "../../Common/FormButton";
 import me from "../../../assets/Je3eTqQJrt.json";
-import FormContainer from "../../Common/FormContainer";
 import "../../../Style/login.css";
 import useAPI from "../../../Hooks/USER/useAPI";
-import InputText from "../validateInputs";
-import { isValidStep1 } from "../../../Auth/isValidate";
 import { toast } from "react-toastify";
 import TextBox from "../../../HOC/TextBox";
 
