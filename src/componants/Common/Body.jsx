@@ -1,12 +1,8 @@
 import React, {
     useState,
-    useContext,
     useCallback,
     useEffect,
-    useMemo,
 } from "react";
-import Modal from "../../render-model/Modal";
-import Swal from "sweetalert2";
 import img from "../../Images/9318700.jpg"
 import css from "../../Style/modal.module.css"
 import moment from "moment"
@@ -40,7 +36,6 @@ const Body = ({ style }) => {
             const jobs = await api.getREQUEST(`ListJob/${id}`);
             const apps = await api.getREQUEST(`fetchAppliedJobs/${id}`);
                 setData(toggle?apps:jobs);
-        // setFilterData[jobs[0]]
     });
 
     useEffect(() => {
@@ -112,11 +107,6 @@ const Body = ({ style }) => {
             }
         });
     };
-        
-    const perFormUnSave = async (id) => {
-
-
-    }
 
 
     return (

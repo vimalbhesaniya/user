@@ -28,21 +28,25 @@ function EditExperience() {
         }
     }
 
+
+    
+
     const handleSubmit = useCallback(async () => {
         const id = Cookies.get("id");
-        const responsibilities = responsibilitie?.split(",");
-        const achievements = achievement.length > 0 && achievement?.split(",");
+        const responsibilities =responsibilitie && responsibilitie?.split(",");
+        const achievements = achievement && achievement?.split(",");
+        const payload = {
+            ...(jobTitle && { jobTitle }),
+            ...(companyName && { companyName }),
+            ...(userType && { userType }),
+            ...(startDateWork && { startDateWork }),
+            ...(endDateWork && { endDateWork }),
+            ...(responsibilities && { responsibilities }),
+            ...(achievements && { achievements }),
+        }
         const data = await api.patchREQUEST("updateDetails", "users", id, {
             experience: [
-                {
-                    jobTitle,
-                    companyName,
-                    userType,
-                    startDateWork,
-                    endDateWork,
-                    responsibilities,
-                    achievements
-                },
+                payload,
             ],
         });
     }, [
@@ -100,7 +104,7 @@ function EditExperience() {
                 </div>
             </div>
 
-            <button type="submit" value="Submit" className="btn btn-info w-25 mb-3sign" data-mdb-ripple-init onClick={() => handleSubmit()}>Save</button>
+            <button type="submit" className="bgbtn btn w-25 mb-3 sign" data-mdb-ripple-init onClick={() => handleSubmit()}>Save</button>
         </div>
     );
 }

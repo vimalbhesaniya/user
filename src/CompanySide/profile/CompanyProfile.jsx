@@ -1,5 +1,4 @@
 import React, { useState } from "react";
-import css from "../Styles/css.module.css";
 
 
 function UserProfileCard() {
@@ -44,7 +43,7 @@ function ProjectStatusCard() {
                 <div className="progress rounded" style={{ height: '5px' }}>
                     <div className="progress-bar" role="progressbar" style={{ width: '80%' }} aria-valuenow="80" aria-valuemin="0" aria-valuemax="100"></div>
                 </div>
-                {/* Add more progress bars for other project statuses */}
+                
             </div>
         </div>
     );
@@ -71,7 +70,7 @@ function UserInfoCard() {
                         <p className="text-muted mb-0">example@example.com</p>
                     </div>
                 </div>
-                {/* Add more rows for other user information */}
+
             </div>
         </div>
     );
@@ -141,7 +140,6 @@ function UserProfile() {
                     <div className="col-lg-4">
                     <UserInfoCard />
                     </div>
-                    {/* Add more components for other sections */}
                 </div>
             </div>
         </section>
@@ -151,8 +149,7 @@ function UserProfile() {
 
 
 const CompanyProfile = () => {
-    const [profile, setProfile] = useState([]);
-
+    
     return (
         <>
                 <UserProfile />

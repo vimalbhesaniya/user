@@ -11,10 +11,9 @@ import FormContainer from "../../componants/Common/FormContainer";
 import NavbarBeforeLogin from "../../componants/login/NavbarBeforeLogin";
 import ResetPassword from "../../componants/login/ResetPassword";
 import useAPI from "../../Hooks/USER/useAPI";
-const LoginAsCompany = ({ setScreen }) => {
+const LoginAsCompany = () => {
     
 const api = useAPI()
-  const x = new Date();
   const navigate = useNavigate();
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
@@ -37,12 +36,6 @@ const api = useAPI()
             Cookies.set("token" , RESPONSE.token)
             navigate("/dashboard");
         }
-            // localStorage.setItem("data",JSON.stringify(RESPONSE.data));
-
-        // } else {
-        //     setErrorMessage(RESPONSE.error)
-        //     console.log(RESPONSE)
-        // }
     }
     else {
         setErrorMessage("Provide Email and Password");

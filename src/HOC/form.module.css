@@ -5,16 +5,17 @@
     --primaryDark: #365486;
     --secendoryColor: gray;
     --font: #142F43;
-    --warn: #bf0c0ccf;
+    --warn: #ededed;
+    --lableWarn: red;
     --warnLight: #bf0c0c9f;
     --bg: #0F1035;
     font-family: "Tenor Sans", sans-serif;
     font-weight: 400;
-    --white :white;
+    --white: white;
     font-style: normal;
 }
 
-.inputBox{
+.inputBox {
     position: relative;
 }
 
@@ -41,11 +42,11 @@
 
 ::placeholder {
     color: var(--secendoryColor);
-    
+
 }
 
 .warning {
-    color: var(--warn);
+    color: var(--lableWarn);
     font-size: small;
 }
 
@@ -55,13 +56,13 @@
     color: var(--warn);
 }
 
-.password{
+.password {
     position: absolute;
     right: 10px;
     bottom: 10px;
 }
 
-.inputDiv{
+.inputDiv {
     position: relative;
-    
+
 }
