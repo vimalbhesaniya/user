@@ -105,7 +105,6 @@ const Apply = ({ jobs }) => {
             const jobId = data._id
             const email = localStorage.getItem("Email");
             const phoneNumber = localStorage.getItem("phoneNumber");
-            console.log(cId , jobId,email ,phoneNumber,cv);
             const RESPONSE = await api.postREQUEST("Apply", JSON.stringify({userId, email, phoneNumber, cv, cId, jobId }));
             setProgress("100%");
             setFrom("form3")
@@ -162,8 +161,9 @@ const Apply = ({ jobs }) => {
                             <div className="col-md-2 appImageContainer">
                                 <img
                                     className="appImage"
-                                    src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRIBYfT1otzlFrFgIErgyxOyBbO37OM5JsaUA&usqp=CAU"
+                                    src={user.profileImage}
                                     alt=""
+                                    onError={(e) => e.target.src = "https://isobarscience-1bfd8.kxcdn.com/wp-content/uploads/2020/09/default-profile-picture1.jpg"}
                                 />
                             </div>
                             <div className="col-md-10 mt-3">

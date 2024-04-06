@@ -1,6 +1,5 @@
-import React, { useContext, useEffect, useState } from "react";
+import React, { useContext } from "react";
 import job from "../../Style/jobCard.module.css";
-import GlobalModel from "../../Global/GlobalModel";
 import { ActiveModal } from "../..";
 
 const JobCard = ({
@@ -10,11 +9,9 @@ const JobCard = ({
     title,
     jobtype,
     location,
-    setModel,
     salary,
     postedtime,
     hidden,
-    viewJob,
     companyLogo,
     perFormUnSave,
     savedId

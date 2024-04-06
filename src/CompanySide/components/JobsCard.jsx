@@ -8,7 +8,6 @@ const JobsCard = () => {
     const [jobs, setJobs] = useState([]);
     const [viewJob, setViewJob] = useState("");
     const [visible, setVisible] = useState(false);
-    const [keyword, setKeyword] = useState("");
     const api =useAPI()
     const call = async () => {
         const data = await api.getREQUEST("fetchAll/jobs/0/0");

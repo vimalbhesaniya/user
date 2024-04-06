@@ -1,20 +1,16 @@
-import React, { useCallback, useMemo, useState } from "react";
+import React, { useCallback, useState } from "react";
 import "../../../Style/singup.css";
-import ProfessionBox from "../../Common/ProfessionBox";
 import Lottie from "lottie-react";
-import classes from "../../../Style/inputBoxs.module.css";
 import "react-toastify/dist/ReactToastify.css";
 import Stepper from "react-stepper-horizontal";
 import FormButton from "../../Common/FormButton";
 import me from "../../../assets/Je3eTqQJrt.json";
-import FormContainer from "../../Common/FormContainer";
 import "../../../Style/login.css";
 import { Link, useNavigate } from "react-router-dom";
-import { isValidStep6 } from "../../../Auth/isValidate";
-import InputText from "../validateInputs";
 import useAPI from "../../../Hooks/USER/useAPI";
 import TextBox from "../../../HOC/TextBox";
 import { toast } from "react-toastify";
+import Saved from "../../Common/Boxes";
 
 
 const Step6 = ({ setScreen }) => {
@@ -26,7 +22,6 @@ const Step6 = ({ setScreen }) => {
     const [input, setInput] = useState([]);
     const [langauges, setLanguages] = useState([]);
     const [description, setDescription] = useState("");
-
 
     const handleEnterSkillsEvent = (e) => {
         if (e.key == "Enter") {
@@ -43,14 +38,13 @@ const Step6 = ({ setScreen }) => {
     };
 
     const handleSubmit = useCallback(async () => {
-        if(skills && profession && langauges && description)
-        {
+        if (skills.length != 0 && profession && langauges.length != 0 && description) {
             const id = localStorage.getItem("upd_id");
             const data = await api.patchREQUEST("updateDetails", "users", id, { langauges, profession, skills, description });
             console.log(data);
             navigate("/loginasuser");
         }
-        else{
+        else {
             toast.error("Fill the form")
         }
 
@@ -73,14 +67,21 @@ const Step6 = ({ setScreen }) => {
                     <div className="--heading">
                         <span className="--headingText">Sign Up</span>
                         <Stepper steps={[{}, {}, {}, {}, {}, {}]} activeStep={5} />
-                        <span className="--sloganText">Give yout Experience Details(you can skip this step)</span>
+                        <span className="--sloganText">Give your Skills ,profession and langauge details.</span>
                         <span className="--waring"></span>
                     </div>
                     <div className="d-flex flex-column gap-2 do-res ">
+                        <div className="d-flex flex-wrap  gap-3">
+                            <Saved
+                                array={skills}
+                                setArray={setSkills}
+                            />
+                        </div>
                         <TextBox
                             Type={"text"}
                             PlaceHolder={"Skills"}
-                            onChange={setSkills}
+                            handleChange={setInput}
+                            handleKeyUpChange={handleEnterSkillsEvent}
                             required={true}
                             labelText={"Skills"}
                         />
@@ -91,10 +92,17 @@ const Step6 = ({ setScreen }) => {
                             required={true}
                             labelText={"Profession"}
                         />
+                        <div className="d-flex flex-wrap  gap-3">
+                            <Saved
+                                array={langauges}
+                                setArray={setLanguages}
+                            />
+                        </div>
                         <TextBox
                             Type={"text"}
                             PlaceHolder={"Languages"}
-                            onChange={setLanguages}
+                            handleKeyUpChange={handleEnterLangaugeEvent}
+                            handleChange={setInput}
                             required={true}
                             labelText={"Languages"}
                         />
